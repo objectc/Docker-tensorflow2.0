@@ -1,7 +1,7 @@
 # ==================================================================
 # module list
 # ------------------------------------------------------------------
-# python        3.6    
+# python        3.7    
 # tensorflow    2.0-gpu
 # ==================================================================
 
@@ -46,15 +46,15 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
     add-apt-repository ppa:deadsnakes/ppa && \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive $APT_INSTALL \
-        python3.6 \
-        python3.6-dev \
+        python3.7 \
+        python3.7-dev \
         python3-distutils-extra \
         && \
     wget -O ~/get-pip.py \
         https://bootstrap.pypa.io/get-pip.py && \
-    python3.6 ~/get-pip.py && \
-    ln -s /usr/bin/python3.6 /usr/local/bin/python3 && \
-    ln -s /usr/bin/python3.6 /usr/local/bin/python && \
+    python3.7 ~/get-pip.py && \
+    ln -s /usr/bin/python3.7 /usr/local/bin/python3 && \
+    ln -s /usr/bin/python3.7 /usr/local/bin/python && \
     $PIP_INSTALL \
         setuptools \
         && \
@@ -66,6 +66,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
         scikit-learn \
         matplotlib \
         Cython \
+        jupyterlab \
         && \
 
 # ==================================================================
@@ -73,7 +74,7 @@ RUN APT_INSTALL="apt-get install -y --no-install-recommends" && \
 # ------------------------------------------------------------------
 
     $PIP_INSTALL \
-        tensorflow-gpu==2.0.0-beta0 \
+        tensorflow-gpu==2.0.0-beta1 \
         && \
 
 # ==================================================================
